@@ -1,7 +1,7 @@
 package logic
 import scala.util.Random
-
 object Grid {
+
   val cols = 10
   val rows = 20
 
@@ -20,19 +20,13 @@ object Grid {
 
   var currentTetrominus: Tetrominus = nextTetrominus
 
-  private def nextTetrominus: Tetrominus = {
+  def nextTetrominus: Tetrominus = {
     val nextIndex = random.nextInt(tetrominusGenerators.length)
     tetrominusGenerators(nextIndex)()
   }
-
-  private def startGame(): Unit = {
-    currentTetrominus = nextTetrominus
-  }
-
 
   for (i <- 0 until rows; j <- 0 until cols) {
     grid(i)(j) = 0
   }
 
-  startGame()
 }

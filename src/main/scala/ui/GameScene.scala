@@ -8,6 +8,10 @@ import scalafx.scene.paint.Color
 import scalafx.scene.shape.Rectangle
 import scalafx.scene.input.{KeyCode, KeyEvent}
 import scalafx.Includes._
+import scalafx.application.Platform
+
+import java.util.Timer
+import java.util.TimerTask
 
 class GameScene extends Scene {
 
@@ -45,9 +49,22 @@ class GameScene extends Scene {
   }
 
   private def updateDisplay(): Unit = {
-    tetrusPane.children.clear()
-    drawGrid()
-    drawPiece()
+      tetrusPane.children.clear()
+      drawGrid()
+      drawPiece()
+  }
+
+  private def startGame(): Unit = {
+    val timer = new Timer()
+    val task = new TimerTask {
+      def run(): Unit = {
+        Platform.runLater(() => {
+          Grid.currentTetrominus = Grid.currentTetrominus.moveDown
+          updateDisplay()
+        })
+      }
+    }
+    timer.scheduleAtFixedRate(task, 0, 1000)
   }
 
   this.onKeyPressed = (event: KeyEvent) => {
@@ -63,4 +80,6 @@ class GameScene extends Scene {
 
   drawGrid()
   drawPiece()
+  startGame()
+
 }

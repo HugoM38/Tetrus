@@ -35,7 +35,7 @@ sealed abstract class Tetrominus {
     if (isValidMove(newBlocks)) {
       this.copy(blocks = newBlocks, state)
     } else {
-      this
+      Grid.nextTetrominus
     }
   }
 

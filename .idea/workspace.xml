@@ -7,8 +7,12 @@
     <list default="true" id="f66c14fc-7597-42bc-afb6-8a5e7bdf9ed8" name="Changes" comment="feat: add GameScene,Tetrominus movement and rotation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/logic/Grid.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/logic/Grid.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/logic/Tetrominus.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/logic/Tetrominus.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/ui/GameScene.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ui/GameScene.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
