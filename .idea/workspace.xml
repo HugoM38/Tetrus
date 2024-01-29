@@ -11,7 +11,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/scala/ui/GameScene.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ui/GameScene.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene.class" afterDir="false" />
     </list>

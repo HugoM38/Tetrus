@@ -35,8 +35,8 @@ class GameScene extends Scene {
 
   content = List(tetrusPane)
 
-  private def drawPiece(): Unit = {
-    for(block <- Grid.currentTetrominus.blocks) {
+  private def drawBlocks(): Unit = {
+    for(block <- Grid.blockList) {
       val rect = new Rectangle{
         x = block.x * cellSize
         y = block.y * cellSize
@@ -51,7 +51,7 @@ class GameScene extends Scene {
   private def updateDisplay(): Unit = {
       tetrusPane.children.clear()
       drawGrid()
-      drawPiece()
+      drawBlocks()
   }
 
   private def startGame(): Unit = {
@@ -79,7 +79,7 @@ class GameScene extends Scene {
   }
 
   drawGrid()
-  drawPiece()
+  drawBlocks()
   startGame()
 
 }

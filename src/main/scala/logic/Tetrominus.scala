@@ -33,6 +33,9 @@ sealed abstract class Tetrominus {
   def moveDown: Tetrominus = {
     val newBlocks = blocks.map(b => b.copy(y = b.y + 1))
     if (isValidMove(newBlocks)) {
+      newBlocks.foreach(block => {
+        Grid.blockList = Grid.blockList :+ block
+      })
       this.copy(blocks = newBlocks, state)
     } else {
       Grid.nextTetrominus
