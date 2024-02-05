@@ -18,7 +18,7 @@ sealed abstract class Tetrominus {
   }
 
   def isValidMoveVertical(blocks: Array[Block]): Boolean = {
-    blocks.forall(b => b.y >= 0 && b.y <= 19)
+    blocks.forall(b => b.y >= 0 && b.y <= 24)
   }
 
   private def touchesOtherBlocksVertical: Boolean = {

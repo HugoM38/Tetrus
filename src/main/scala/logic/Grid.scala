@@ -3,7 +3,7 @@ import scala.util.Random
 object Grid {
 
   val cols = 10
-  val rows = 20
+  val rows = 25
 
   private val random = new Random()
 

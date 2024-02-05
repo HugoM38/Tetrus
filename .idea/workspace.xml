@@ -11,21 +11,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/scala/ui/GameScene.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ui/GameScene.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Grid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/ITetrominus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/ITetrominus$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/ITetrominus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/ITetrominus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/JTetrominus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/JTetrominus$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/JTetrominus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/JTetrominus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/LTetrominus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/LTetrominus$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/LTetrominus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/LTetrominus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/OTetrominus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/OTetrominus$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/OTetrominus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/OTetrominus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/STetrominus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/STetrominus$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/STetrominus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/STetrominus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/TTetrominus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/TTetrominus$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/TTetrominus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/TTetrominus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Tetrominus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/Tetrominus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/ZTetrominus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/ZTetrominus$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/logic/ZTetrominus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/logic/ZTetrominus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene$$anon$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/ui/GameScene.class" afterDir="false" />
     </list>
