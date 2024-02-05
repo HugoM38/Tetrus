@@ -1,8 +1,7 @@
 package ui
-import logic.Grid
+import logic.{Block, Grid}
 import scalafx.scene.Scene
-import logic.Grid.rows
-import logic.Grid.cols
+import logic.Grid.{blockList, cols, rows}
 import scalafx.scene.layout.Pane
 import scalafx.scene.paint.Color
 import scalafx.scene.shape.Rectangle
@@ -12,6 +11,7 @@ import scalafx.application.Platform
 
 import java.util.Timer
 import java.util.TimerTask
+import scala.annotation.tailrec
 
 class GameScene extends Scene {
 
@@ -61,21 +61,51 @@ class GameScene extends Scene {
         Platform.runLater(() => {
           Grid.currentTetrominus = Grid.currentTetrominus.moveDown
           updateDisplay()
+          checkAndRemoveRows()
         })
       }
     }
     timer.scheduleAtFixedRate(task, 0, 1000)
   }
 
+  @tailrec
+  private def checkAndRemoveRows(): Unit = {
+    if(Grid.currentTetrominus.canMoveDown) return
+    val rowsToRemove = (0 until rows).filter(row => (0 until cols).forall(col => blockList.contains(Block(col, row))))
+    if (rowsToRemove.nonEmpty) {
+      removeRow(rowsToRemove.head)
+      checkAndRemoveRows()
+    }
+  }
+
+  private def removeRow(rowToRemove: Int): Unit = {
+      var newBlockList: Array[Block] = Array()
+      newBlockList ++= blockList.filter(_.y < rowToRemove).map(block => Block(block.x, block.y + 1))
+      newBlockList ++= blockList.filter(_.y > rowToRemove)
+      blockList = newBlockList
+      updateDisplay()
+  }
+
   this.onKeyPressed = (event: KeyEvent) => {
     event.code match {
-      case KeyCode.Left => Grid.currentTetrominus = Grid.currentTetrominus.moveLeft
-      case KeyCode.Right => Grid.currentTetrominus = Grid.currentTetrominus.moveRight
-      case KeyCode.Down => Grid.currentTetrominus = Grid.currentTetrominus.moveDown
-      case KeyCode.Up => Grid.currentTetrominus = Grid.currentTetrominus.rotate
+      case KeyCode.Left =>
+        Grid.currentTetrominus = Grid.currentTetrominus.moveLeft
+        updateDisplay()
+        checkAndRemoveRows()
+      case KeyCode.Right =>
+        Grid.currentTetrominus = Grid.currentTetrominus.moveRight
+        updateDisplay()
+        checkAndRemoveRows()
+      case KeyCode.Down =>
+        Grid.currentTetrominus = Grid.currentTetrominus.moveDown
+        updateDisplay()
+        checkAndRemoveRows()
+      case KeyCode.Up =>
+        Grid.currentTetrominus = Grid.currentTetrominus.rotate
+        updateDisplay()
+        checkAndRemoveRows()
       case _ =>
     }
-    updateDisplay()
   }
 
   drawGrid()

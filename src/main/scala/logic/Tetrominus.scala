@@ -22,9 +22,7 @@ sealed abstract class Tetrominus {
   }
 
   private def touchesOtherBlocksVertical: Boolean = {
-    println(Grid.blockList.length)
     val filteredBlockList = Grid.blockList.filterNot(blocks.contains)
-    println(filteredBlockList.length)
     blocks.exists(b => filteredBlockList.exists(bl => bl.x == b.x && bl.y == b.y + 1))
   }
 
@@ -67,7 +65,7 @@ sealed abstract class Tetrominus {
       }
     } else {
       val newBlocks = blocks.map(b => b.copy(y = b.y + 1))
-      if (isValidMoveVertical(newBlocks) && !touchesOtherBlocksVertical) {
+      if (canMoveDown) {
         val blocksToRemove = blocks.filter(b => !newBlocks.contains(b))
         blocksToRemove.foreach(block => Grid.blockList = Grid.blockList.filter(b => b != block))
         newBlocks.foreach(block => Grid.blockList = Grid.blockList :+ block)
@@ -78,6 +76,11 @@ sealed abstract class Tetrominus {
     }
 
   }
+
+  def canMoveDown: Boolean = {
+    val newBlocks = blocks.map(b => b.copy(y = b.y + 1))
+    isValidMoveVertical(newBlocks) && !touchesOtherBlocksVertical
+  } 
 
   def copy(blocks: Array[Block], state: Int): Tetrominus
 }
@@ -93,7 +96,10 @@ case class ITetrominus(override val blocks: Array[Block], override val state: In
       case 1 => Array(Block(center.x, center.y - 1), Block(center.x, center.y), Block(center.x, center.y + 1), Block(center.x, center.y + 2))
     }
 
-    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks)) {
+    val currentBlocksSet = blocks.toSet
+    val blocksToCheck = Grid.blockList.filterNot(currentBlocksSet.contains)
+
+    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks) && !newBlocks.exists(b => blocksToCheck.contains(b))) {
       val blocksToRemove = blocks.filter(b => !newBlocks.contains(b))
       blocksToRemove.foreach(block => Grid.blockList = Grid.blockList.filter(b => b != block))
       newBlocks.foreach(block => Grid.blockList = Grid.blockList :+ block)
@@ -115,7 +121,10 @@ case class LTetrominus(override val blocks: Array[Block], override val state: In
       case 2 => Array(Block(center.x - 1, center.y), center, Block(center.x + 1, center.y), Block(center.x + 1, center.y - 1))
       case 3 => Array(Block(center.x, center.y - 1), center, Block(center.x, center.y + 1), Block(center.x + 1, center.y + 1))
     }
-    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks)) {
+    val currentBlocksSet = blocks.toSet
+    val blocksToCheck = Grid.blockList.filterNot(currentBlocksSet.contains)
+
+    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks) && !newBlocks.exists(b => blocksToCheck.contains(b))) {
       val blocksToRemove = blocks.filter(b => !newBlocks.contains(b))
       blocksToRemove.foreach(block => Grid.blockList = Grid.blockList.filter(b => b != block))
       newBlocks.foreach(block => Grid.blockList = Grid.blockList :+ block)
@@ -135,7 +144,10 @@ case class JTetrominus(override val blocks: Array[Block], override val state: In
       case 2 => Array(Block(center.x - 1, center.y), center, Block(center.x + 1, center.y), Block(center.x + 1, center.y + 1))
       case 3 => Array(Block(center.x, center.y - 1), center, Block(center.x, center.y + 1), Block(center.x - 1, center.y + 1))
     }
-    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks)) {
+    val currentBlocksSet = blocks.toSet
+    val blocksToCheck = Grid.blockList.filterNot(currentBlocksSet.contains)
+
+    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks) && !newBlocks.exists(b => blocksToCheck.contains(b))) {
       val blocksToRemove = blocks.filter(b => !newBlocks.contains(b))
       blocksToRemove.foreach(block => Grid.blockList = Grid.blockList.filter(b => b != block))
       newBlocks.foreach(block => Grid.blockList = Grid.blockList :+ block)
@@ -163,7 +175,10 @@ case class STetrominus(override val blocks: Array[Block], override val state: In
       case 0 => Array(Block(center.x - 1, center.y - 1), center, Block(center.x - 1, center.y), Block(center.x, center.y + 1))
       case 1 => Array(Block(center.x + 1, center.y), center, Block(center.x, center.y + 1), Block(center.x - 1, center.y + 1))
     }
-    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks)) {
+    val currentBlocksSet = blocks.toSet
+    val blocksToCheck = Grid.blockList.filterNot(currentBlocksSet.contains)
+
+    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks) && !newBlocks.exists(b => blocksToCheck.contains(b))) {
       val blocksToRemove = blocks.filter(b => !newBlocks.contains(b))
       blocksToRemove.foreach(block => Grid.blockList = Grid.blockList.filter(b => b != block))
       newBlocks.foreach(block => Grid.blockList = Grid.blockList :+ block)
@@ -183,7 +198,10 @@ case class TTetrominus(override val blocks: Array[Block], override val state: In
       case 2 => Array(Block(center.x, center.y + 1), center, Block(center.x, center.y - 1), Block(center.x + 1, center.y))
       case 3 => Array(Block(center.x + 1, center.y), center, Block(center.x - 1, center.y), Block(center.x, center.y + 1))
     }
-    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks)) {
+    val currentBlocksSet = blocks.toSet
+    val blocksToCheck = Grid.blockList.filterNot(currentBlocksSet.contains)
+
+    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks) && !newBlocks.exists(b => blocksToCheck.contains(b))) {
       val blocksToRemove = blocks.filter(b => !newBlocks.contains(b))
       blocksToRemove.foreach(block => Grid.blockList = Grid.blockList.filter(b => b != block))
       newBlocks.foreach(block => Grid.blockList = Grid.blockList :+ block)
@@ -202,7 +220,10 @@ case class ZTetrominus(override val blocks: Array[Block], override val state: In
       case 0 => Array(Block(center.x, center.y + 1), center, Block(center.x + 1, center.y), Block(center.x + 1, center.y - 1))
       case 1 => Array(Block(center.x - 1, center.y), center, Block(center.x, center.y + 1), Block(center.x + 1, center.y + 1))
     }
-    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks)) {
+    val currentBlocksSet = blocks.toSet
+    val blocksToCheck = Grid.blockList.filterNot(currentBlocksSet.contains)
+
+    if (isValidMoveHorizontal(newBlocks) && isValidMoveVertical(newBlocks) && !newBlocks.exists(b => blocksToCheck.contains(b))) {
       val blocksToRemove = blocks.filter(b => !newBlocks.contains(b))
       blocksToRemove.foreach(block => Grid.blockList = Grid.blockList.filter(b => b != block))
       newBlocks.foreach(block => Grid.blockList = Grid.blockList :+ block)

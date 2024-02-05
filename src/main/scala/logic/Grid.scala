@@ -5,7 +5,6 @@ object Grid {
   val cols = 10
   val rows = 20
 
-  private val grid = Array.ofDim[Int](rows, cols)
   private val random = new Random()
 
   var blockList: Array[Block] = Array()
@@ -29,10 +28,6 @@ object Grid {
       blockList = blockList :+ block
     })
     tetrominus
-  }
-
-  for (i <- 0 until rows; j <- 0 until cols) {
-    grid(i)(j) = 0
   }
 
 }
