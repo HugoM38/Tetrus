@@ -8,24 +8,30 @@ object Grid {
 
   private val random = new Random()
 
-  var blockList: Array[Block] = Array()
-
-  private val tetrominusGenerators: Array[() => Tetrominus] = Array(
-    () => ITetrominus(Array(Block(4, 0), Block(4, 1), Block(4, 2), Block(4, 3)), 0),
-    () => JTetrominus(Array(Block(5, 0), Block(5, 1), Block(5, 2), Block(4, 2)), 0),
-    () => LTetrominus(Array(Block(4, 0), Block(4, 1), Block(4, 2), Block(5, 2)), 0),
-    () => OTetrominus(Array(Block(4, 0), Block(4, 1), Block(5, 0), Block(5, 1)), 0),
-    () => STetrominus(Array(Block(4, 1), Block(5, 1), Block(5, 0), Block(6, 0)), 0),
-    () => TTetrominus(Array(Block(4, 0), Block(5, 0), Block(6, 0), Block(5, 1)), 0),
-    () => ZTetrominus(Array(Block(4, 0), Block(5, 0), Block(5, 1), Block(6, 1)), 0)
+  private val tetrominusGenerators: List[() => Tetrominus] = List(
+    () => ITetrominus(List(Block(4, 0), Block(4, 1), Block(4, 2), Block(4, 3)), 0),
+    () => JTetrominus(List(Block(5, 0), Block(5, 1), Block(5, 2), Block(4, 2)), 0),
+    () => LTetrominus(List(Block(4, 0), Block(4, 1), Block(4, 2), Block(5, 2)), 0),
+    () => OTetrominus(List(Block(4, 0), Block(4, 1), Block(5, 0), Block(5, 1)), 0),
+    () => STetrominus(List(Block(4, 1), Block(5, 1), Block(5, 0), Block(6, 0)), 0),
+    () => TTetrominus(List(Block(4, 0), Block(5, 0), Block(6, 0), Block(5, 1)), 0),
+    () => ZTetrominus(List(Block(4, 0), Block(5, 0), Block(5, 1), Block(6, 1)), 0)
   )
 
-  var currentTetrominus: Tetrominus = nextTetrominus
+  var currentTetrominus: Tetrominus = tetrominusGenerators(random.nextInt(tetrominusGenerators.length))()
+  var currentBlockList: List[Block] = List()
 
-  def nextTetrominus: Tetrominus = {
+  def addBlocksToList(blockList: List[Block], blocks: List[Block]): List[Block] = {
+    blockList ++ blocks
+  }
+
+  def removeBlocksFromList(blockList: List[Block], blocks: List[Block]): List[Block] = {
+    blockList.filter(b => !blocks.contains(b))
+  }
+
+  def nextTetrominus(blockList: List[Block]): (List[Block], Tetrominus) = {
     val nextIndex = random.nextInt(tetrominusGenerators.length)
     val tetrominus = tetrominusGenerators(nextIndex)()
-    blockList ++= tetrominus.blocks
-    tetrominus
+    (Grid.addBlocksToList(blockList, tetrominus.blocks), tetrominus)
   }
 }

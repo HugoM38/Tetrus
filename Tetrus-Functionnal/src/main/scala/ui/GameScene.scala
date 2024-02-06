@@ -1,12 +1,12 @@
 package ui
 
-import logic.{Block, Grid}
+import logic.{Block, Grid, Tetrominus}
 import scalafx.scene.Scene
 import scalafx.scene.layout.Pane
 import scalafx.scene.paint.Color
 import scalafx.scene.shape.{Line, Rectangle}
-import scalafx.scene.input.{KeyCode, KeyEvent}
 import scalafx.Includes._
+import scalafx.scene.input.{KeyCode, KeyEvent}
 import scalafx.application.Platform
 import scalafx.scene.control.Button
 import scalafx.scene.text.Text
@@ -48,8 +48,8 @@ class GameScene extends Scene {
 
   content = List(tetrusPane)
 
-  private def drawBlocks(): Unit = {
-    for(block <- Grid.blockList) {
+  private def drawBlocks(blockList: List[Block]): Unit = {
+    for(block <- blockList) {
       val rect = new Rectangle{
         x = block.x * cellSize
         y = block.y * cellSize
@@ -62,11 +62,12 @@ class GameScene extends Scene {
     }
   }
 
-  private def updateDisplay(): Unit = {
-    if (!gameStarted) return
+  private def updateDisplay(blockList: List[Block]): List[Block] = {
+    if (!gameStarted) return blockList
     tetrusPane.children.clear()
     drawGrid()
-    drawBlocks()
+    drawBlocks(blockList)
+    blockList
   }
 
   private def startGame(): Unit = {
@@ -75,10 +76,14 @@ class GameScene extends Scene {
     val task = new TimerTask {
       def run(): Unit = {
         Platform.runLater(() => {
-          checkIfLost()
-          Grid.currentTetrominus = Grid.currentTetrominus.moveDown
-          updateDisplay()
-          checkAndRemoveRows()
+          val (newBlockList , newTetrominus) = checkIfLost(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList
+          Grid.currentTetrominus = newTetrominus
+          val (newBlockList2 , newTetrominus2) = Grid.currentTetrominus.moveDown(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList2
+          Grid.currentTetrominus = newTetrominus2
+          Grid.currentBlockList = updateDisplay(Grid.currentBlockList)
+          Grid.currentBlockList = checkAndRemoveRows(Grid.currentBlockList)
         })
       }
     }
@@ -86,24 +91,24 @@ class GameScene extends Scene {
   }
 
   @tailrec
-  private def checkAndRemoveRows(): Unit = {
-    if(Grid.currentTetrominus.canMoveDown) return
-    val rowsToRemove = (0 until Grid.rows).filter(row => (0 until Grid.cols).forall(col => Grid.blockList.contains(Block(col, row))))
+  private def checkAndRemoveRows(blockList: List[Block]): List[Block] = {
+    if(Grid.currentTetrominus.canMoveDown(blockList)) return blockList
+    val rowsToRemove = (0 until Grid.rows).filter(row => (0 until Grid.cols).forall(col => blockList.contains(Block(col, row))))
     if (rowsToRemove.nonEmpty) {
-      removeRow(rowsToRemove.head)
-      checkAndRemoveRows()
+      checkAndRemoveRows(removeRow(blockList ,rowsToRemove.head))
+    } else {
+      blockList
     }
   }
 
-  private def removeRow(rowToRemove: Int): Unit = {
-    val newBlockList = Grid.blockList.filter(_.y < rowToRemove).map(block => Block(block.x, block.y + 1)) ++
-      Grid.blockList.filter(_.y > rowToRemove)
-    Grid.blockList = newBlockList
-    updateDisplay()
+  private def removeRow(blockList: List[Block], rowToRemove: Int): List[Block] = {
+    val newBlockList = blockList.filter(_.y < rowToRemove).map(block => Block(block.x, block.y + 1)) ++
+      blockList.filter(_.y > rowToRemove)
+    updateDisplay(newBlockList)
   }
 
-  private def checkIfLost(): Unit = {
-    if(Grid.blockList.exists(_.y == 4) && !Grid.currentTetrominus.canMoveDown) {
+  private def checkIfLost(blockList: List[Block]): (List[Block], Tetrominus) = {
+    if(blockList.exists(_.y == 4) && !Grid.currentTetrominus.canMoveDown(blockList)) {
       gameStarted = false
       val gameOverBackground = new Rectangle {
         x = 0
@@ -119,10 +124,17 @@ class GameScene extends Scene {
         fill = Color.White
       }
 
+      var newBlockList: List[Block] = List()
+      var newTetrominus: Tetrominus = Grid.currentTetrominus
+
       val restartButton = new Button("Restart") {
         layoutX = (Grid.cols * cellSize) / 2 - 50
         layoutY = (Grid.rows * cellSize) / 2 + 30
-        onAction = _ => restartGame()
+        onAction = _ => {
+          val (newBlockList2, newTetrominus2 ) = restartGame()
+          newBlockList = newBlockList2
+          newTetrominus = newTetrominus2
+        }
       }
 
       tetrusPane.children.addAll(gameOverBackground, gameOverText, restartButton)
@@ -131,57 +143,80 @@ class GameScene extends Scene {
       gameOverText.y = (Grid.rows * cellSize) / 2
 
       timer.cancel()
+      (newBlockList, newTetrominus)
+    } else {
+      (blockList, Grid.currentTetrominus)
     }
   }
 
-  private def restartGame(): Unit = {
-    Grid.blockList = Array()
-    Grid.currentTetrominus = Grid.nextTetrominus
+  private def restartGame(): (List[Block], Tetrominus) = {
+    val (blockList, newTetrominus) = Grid.nextTetrominus(List())
     startGame()
+    (blockList, newTetrominus)
   }
 
   this.onKeyPressed = (event: KeyEvent) => {
     event.code match {
       case KeyCode.Left =>
         if (gameStarted) {
-          Grid.currentTetrominus = Grid.currentTetrominus.moveLeft
-          checkIfLost()
-          updateDisplay()
-          checkAndRemoveRows()
+          val (newBlockList, newTetrominus) = Grid.currentTetrominus.moveLeft(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList
+          Grid.currentTetrominus = newTetrominus
+          val (newBlockList2, newTetrominus2) = checkIfLost(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList2
+          Grid.currentTetrominus = newTetrominus2
+          Grid.currentBlockList = updateDisplay(Grid.currentBlockList)
+          Grid.currentBlockList = checkAndRemoveRows(Grid.currentBlockList)
         }
       case KeyCode.Right =>
         if (gameStarted) {
-          Grid.currentTetrominus = Grid.currentTetrominus.moveRight
-          checkIfLost()
-          updateDisplay()
-          checkAndRemoveRows()
+          val (newBlockList, newTetrominus) = Grid.currentTetrominus.moveRight(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList
+          Grid.currentTetrominus = newTetrominus
+          val (newBlockList2, newTetrominus2) = checkIfLost(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList2
+          Grid.currentTetrominus = newTetrominus2
+          Grid.currentBlockList = updateDisplay(Grid.currentBlockList)
+          Grid.currentBlockList = checkAndRemoveRows(Grid.currentBlockList)
         }
       case KeyCode.Down =>
         if (gameStarted) {
-          Grid.currentTetrominus = Grid.currentTetrominus.moveDown
-          checkIfLost()
-          updateDisplay()
-          checkAndRemoveRows()
+          val (newBlockList, newTetrominus) = Grid.currentTetrominus.moveDown(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList
+          Grid.currentTetrominus = newTetrominus
+          val (newBlockList2, newTetrominus2) = checkIfLost(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList2
+          Grid.currentTetrominus = newTetrominus2
+          Grid.currentBlockList = updateDisplay(Grid.currentBlockList)
+          Grid.currentBlockList = checkAndRemoveRows(Grid.currentBlockList)
         }
       case KeyCode.Up =>
         if (gameStarted) {
-          Grid.currentTetrominus = Grid.currentTetrominus.rotate
-          checkIfLost()
-          updateDisplay()
-          checkAndRemoveRows()
+          val (newBlockList, newTetrominus) = Grid.currentTetrominus.rotate(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList
+          Grid.currentTetrominus = newTetrominus
+          val (newBlockList2, newTetrominus2) = checkIfLost(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList2
+          Grid.currentTetrominus = newTetrominus2
+          Grid.currentBlockList = updateDisplay(Grid.currentBlockList)
+          Grid.currentBlockList = checkAndRemoveRows(Grid.currentBlockList)
         }
       case KeyCode.Space =>
         if (gameStarted) {
-          Grid.currentTetrominus = Grid.currentTetrominus.fullMoveDown
-          checkIfLost()
-          updateDisplay()
-          checkAndRemoveRows()
+          val (newBlockList, newTetrominus) = Grid.currentTetrominus.fullMoveDown(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList
+          Grid.currentTetrominus = newTetrominus
+          val (newBlockList2, newTetrominus2) = checkIfLost(Grid.currentBlockList)
+          Grid.currentBlockList = newBlockList2
+          Grid.currentTetrominus = newTetrominus2
+          Grid.currentBlockList = updateDisplay(Grid.currentBlockList)
+          Grid.currentBlockList = checkAndRemoveRows(Grid.currentBlockList)
         }
       case _ =>
     }
   }
 
   drawGrid()
-  drawBlocks()
+  drawBlocks(Grid.currentBlockList)
   startGame()
 }
