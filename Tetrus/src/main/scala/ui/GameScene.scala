@@ -170,6 +170,13 @@ class GameScene extends Scene {
           updateDisplay()
           checkAndRemoveRows()
         }
+      case KeyCode.Space =>
+        if (gameStarted) {
+          Grid.currentTetrominus = Grid.currentTetrominus.fullMoveDown
+          checkIfLost()
+          updateDisplay()
+          checkAndRemoveRows()
+        }
       case _ =>
     }
   }

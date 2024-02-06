@@ -40,6 +40,8 @@ sealed abstract class Tetrominus {
 
   def moveDown: Tetrominus = move(MoveDirection.Down)
 
+  def fullMoveDown: Tetrominus = move()
+
   private def move(direction: MoveDirection.Value): Tetrominus = {
     val dx = if (direction == MoveDirection.Left) -1 else if (direction == MoveDirection.Right) 1 else 0
     val dy = if (direction == MoveDirection.Down) 1 else 0
@@ -57,6 +59,14 @@ sealed abstract class Tetrominus {
     } else {
       this
     }
+  }
+
+  private def move(): Tetrominus = {
+    var result = move(MoveDirection.Down)
+    while (result.canMoveDown) {
+      result = result.move(MoveDirection.Down)
+    }
+    result
   }
 
   def updateBlocks(newBlocks: Array[Block], state: Int): Tetrominus = {
