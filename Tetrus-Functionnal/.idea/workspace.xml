@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f66c14fc-7597-42bc-afb6-8a5e7bdf9ed8" name="Changes" comment="feat: add GameScene,Tetrominus movement and rotation">
+      <change beforePath="$PROJECT_DIR$/../.bsp/sbt.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_base_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_base_21_mac_aarch64_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_controls_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_controls_21_mac_aarch64_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_fxml_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_fxml_21_mac_aarch64_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_graphics_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_graphics_21_mac_aarch64_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_media_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_media_21_mac_aarch64_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_swing_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_swing_21_mac_aarch64_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_web_21_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_openjfx_javafx_web_21_mac_aarch64_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_scala_lang_scala_library_2_13_12_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_scala_lang_scala_reflect_2_13_12_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__org_scalafx_scalafx_2_13_21_0_0_R32_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/sbt__scala_sdk_2_13_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/Tetrus-build.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/Tetrus.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sbt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/scala_compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$0dd1029466f3db32e8ce$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$0dd1029466f3db32e8ce.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$0dd1029466f3db32e8ce.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$579b6dae9f48c4289925$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$579b6dae9f48c4289925.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$579b6dae9f48c4289925.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$bc936506d1a2e739a537$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$bc936506d1a2e739a537.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$bc936506d1a2e739a537.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$cd8854d3104a5757868c$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$cd8854d3104a5757868c.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/config-classes/$cd8854d3104a5757868c.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/scala-2.12/sbt-1.0/sync/copy-resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/_global/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/_global/csrLogger/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/csrConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/csrProject/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/ivyConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/ivySbt/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/moduleSettings/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/projectDescriptors/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/scalaCompilerBridgeScope/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/_global/update/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/_global/_global/discoveredMainClasses/data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/bspReporter/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/compile/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/compileIncremental/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/compileIncremental/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/copyResources/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/internalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/internalDependencyClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/scalacOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/compile/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/exportedProducts/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/internalDependencyClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/target/streams/runtime/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/scala/Main.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/scala/logic/Grid.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/scala/logic/Tetrominus.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/scala/ui/GameScene.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/.history3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/Main$$anon$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/Main$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/Block$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/Block.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/Grid$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/Grid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/ITetrominus$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/ITetrominus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/JTetrominus$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/JTetrominus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/LTetrominus$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/LTetrominus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/MoveDirection$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/MoveDirection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/OTetrominus$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/OTetrominus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/STetrominus$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/STetrominus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/TTetrominus$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/TTetrominus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/Tetrominus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/ZTetrominus$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/logic/ZTetrominus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/ui/GameScene$$anon$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/ui/GameScene$$anon$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/ui/GameScene$$anon$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/ui/GameScene$$anon$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/ui/GameScene$$anon$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/ui/GameScene$$anon$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/ui/GameScene$$anon$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/classes/ui/GameScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/update/update_cache_2.13/inputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/scala-2.13/update/update_cache_2.13/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/_global/csrLogger/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/_global/dumpStructure/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/csrConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/csrProject/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/dependencyPositions/_global/streams/update_cache_2.13/input_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/dependencyPositions/_global/streams/update_cache_2.13/output_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/ivyConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/ivySbt/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/moduleSettings/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/projectDescriptors/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/ssExtractDependencies/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/update/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/updateClassifiers/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/updateClassifiers/_global/streams/update_cache_2.13/inputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/_global/updateClassifiers/_global/streams/update_cache_2.13/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/compile/scalacOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/compile/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/compile/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/compile/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/runtime/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/runtime/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/runtime/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/test/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/test/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/test/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/test/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/streams/test/unmanagedJars/_global/streams/export" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="SBT">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2aiKWrr3GIwzoBwMwVFJdtU7jq9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/hugo/work/MASTER/Scala/Tetrus/Tetrus",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Tetrus" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f66c14fc-7597-42bc-afb6-8a5e7bdf9ed8" name="Changes" comment="" />
+      <created>1704795993720</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704795993720</updated>
+    </task>
+    <task id="LOCAL-00001" summary="feat: add GameScene,Tetrominus movement and rotation">
+      <option name="closed" value="true" />
+      <created>1705524054756</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705524054756</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="feat: add GameScene,Tetrominus movement and rotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add GameScene,Tetrominus movement and rotation" />
+  </component>
+</project>
